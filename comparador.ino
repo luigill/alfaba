@@ -138,14 +138,18 @@ void setup() {
 
 void loop() {
 
-  for(int i = 0; i < 4 ; i++){
-  letraAux[i] = letrasEsperadas [2][i];
+for(int i = 0; i < 8; i++){
+  for(int j = 0; j < 4 ; j++){
+  letraAux [j] = letrasEsperadas [i][j];
+  vetorTransformado [i] = ByteToInt(letraAux);
   }
+}
 
-  vetorTransformado [0] = ByteToInt(letraAux);
-  Serial.println("Retorno de posição");
-  Serial.println(vetorTransformado [0]);
-
+for(int i = 0; i < 8; i++){
+  Serial.print("Retorno de posição ");
+  Serial.println(i);
+  Serial.println(vetorTransformado [i]);
+}
   for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
 
     // Looking for new cards
